@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wordley</title>
+    <style>
+      :root {
+        --correct-color: rgb(159, 255, 159);
+        --wrong-color: rgb(202, 202, 202);
+        --almost-color: rgb(255, 253, 130);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+          'Helvetica Neue', sans-serif;
+        text-transform: uppercase;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .row {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 8px;
+      }
+
+      .letter-spot {
+        height: 4rem;
+        width: 4rem;
+        border: 2px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      .wrong {
+        /* background-color: red; */
+        background-color: var(--wrong-color);
+        border-color: var(--wrong-color);
+      }
+
+      .almost {
+        background-color: var(--almost-color);
+        border-color: var(--almost-color);
+      }
+
+      .correct {
+        background-color: var(--correct-color);
+        border-color: var(--correct-color);
+      }
+
+      .pop-in {
+        animation-name: pop-in;
+        animation-timing-function: ease;
+        animation-duration: 0.15s;
+      }
+
+      .flip {
+        animation-name: flip;
+        animation-timing-function: ease;
+        animation-duration: 0.35s;
+      }
+
+      @keyframes pop-in {
+        0% {
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes flip {
+        0% {
+          transform: rotateX(-90deg);
+        }
+        100% {
+          transform: rotateX(0deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Wordley</h1>
+    <div id="game">
+      <div class="row">
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+      </div>
+      <div class="row">
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+      </div>
+      <div class="row">
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+      </div>
+      <div class="row">
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+      </div>
+      <div class="row">
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+      </div>
+      <div class="row">
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+        <div class="letter-spot"></div>
+      </div>
+    </div>
+    <script src="words.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
