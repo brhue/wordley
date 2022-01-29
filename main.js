@@ -20,25 +20,25 @@ document.addEventListener('keydown', (e) => {
 })
 
 function updateGame() {
-  guesses.forEach((g, i) => {
+  for (let [i, guess] of guesses.entries()) {
     let row = rows[i]
-    let letters = [...row.children]
-    let status = checkGuess(g, wordToGuess)
-    letters.forEach((letter, index) => {
-      letter.textContent = g[index]
+    let tiles = [...row.children]
+    let status = checkGuess(guess, wordToGuess)
+    for (let [index, tile] of tiles.entries()) {
+      tile.textContent = guess[index]
       if (status[index] == 0) {
-        letter.classList.add('wrong', 'flip')
+        tile.classList.add('wrong', 'flip')
       } else if (status[index] == 1) {
-        letter.classList.add('almost', 'flip')
+        tile.classList.add('almost', 'flip')
       } else {
-        letter.classList.add('correct', 'flip')
+        tile.classList.add('correct', 'flip')
       }
-    })
-    updateKeyboard(status, g)
-  })
+    }
+    updateKeyboard(status, guess)
+  }
   let row = rows[currentGuess]
-  for (let i = 0; i < row.children.length; i++) {
-    let tile = row.children[i]
+  let tiles = [...row.children]
+  for (let [i, tile] of tiles.entries()) {
     let letter = guess[i]
     if (letter) {
       tile.textContent = letter
